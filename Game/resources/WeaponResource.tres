@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://dkme3sndf12aq"]
+
+[ext_resource type="Script" path="res://Scripts/Weapon.gd" id="1_6ydxs"]
+
+[resource]
+script = ExtResource("1_6ydxs")
+Name = ""
+damage = 0
+attacktype = ""
+range = 0.0
+attackspeed = 0.0

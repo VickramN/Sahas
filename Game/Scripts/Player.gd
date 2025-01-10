@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@export var stats : Stats
 #Player Movement Variable
 
 @export var speed = 100
@@ -7,6 +8,10 @@ extends CharacterBody2D
 @export var jump_height = -100
 
 
+func _ready() -> void:
+	#loads default stats
+	var default_stats = load("res://resources/mystats.tres")
+	
 func _physics_process(delta):
 	#Calulate vertical movement speed(i.e Falling)
 	velocity.y += gravity * delta

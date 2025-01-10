@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Armor" load_steps=2 format=3 uid="uid://2boeiud7qytk"]
+
+[ext_resource type="Script" path="res://Scripts/Armor.gd" id="1_6fj1w"]
+
+[resource]
+script = ExtResource("1_6fj1w")
+Name = ""
+defence = 0
+weight = 0
+type = ""
