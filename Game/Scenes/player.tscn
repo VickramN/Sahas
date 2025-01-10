@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bexiieflv4oqb" path="res://Assets/Warrior/SpriteSheet/Warrior_SheetnoEffect.png" id="1_fmu4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ygkm7"]
-size = Vector2(11, 33)
+size = Vector2(10, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78uhi"]
 atlas = ExtResource("1_fmu4u")
@@ -447,7 +447,7 @@ animations = [{
 script = ExtResource("1_77ywr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7, 5)
+position = Vector2(-8, 5.5)
 shape = SubResource("RectangleShape2D_ygkm7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
