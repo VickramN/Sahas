@@ -1071,4 +1071,3 @@ tile_set = SubResource("TileSet_ukp5b")
 
 [node name="Player" parent="." instance=ExtResource("1_goeot")]
 position = Vector2(331, 384)
-jump_height = -300
