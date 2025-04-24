@@ -19,7 +19,7 @@ func _physics_process(delta):
 	horizontal_movement()
 	move_and_slide()
 	
-	if !Global.is_attacking || !Global.is_climbing:
+	if !Global.is_attacking:
 		player_animations()
 		
 	
@@ -34,12 +34,11 @@ func player_animations():
 	if Input.is_action_pressed("ui_left") and is_on_floor():
 		$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play("Run")
-		$CollisionShape2D.position.x = 6
+		$CollisionShape2D.position.x = -3
 	
 	if Input.is_action_pressed("ui_right") and is_on_floor():
 		$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play("Run")
-		$CollisionShape2D.position.x = -6
 	
 	if !Input.is_anything_pressed() and is_on_floor():
 		$AnimatedSprite2D.play("Idle")
@@ -54,15 +53,7 @@ func _input(event):
 		velocity.y = jump_height
 		$AnimatedSprite2D.play("Jump")
 		
-	if Global.is_climbing == true:
-		if Input.is_action_pressed("ui_up"):
-			$AnimatedSprite2D.play("Climb")
-			gravity = 100
-			velocity.y = -85
-		else:
-			gravity = 200
 	
 
 func _on_animated_sprite_2d_animation_finished():
 	Global.is_attacking = false
-	Global.is_climbing = false
