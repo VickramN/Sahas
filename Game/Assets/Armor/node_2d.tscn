@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgk2mlgrb5pgj"]
+
+[ext_resource type="Texture2D" uid="uid://cwua6ywcn2fau" path="res://Assets/roguelikeitems.png" id="1_bh5lu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_remtn"]
+atlas = ExtResource("1_bh5lu")
+region = Rect2(144, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8l2ex"]
+atlas = ExtResource("1_bh5lu")
+region = Rect2(160, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxpcq"]
+atlas = ExtResource("1_bh5lu")
+region = Rect2(0, 144, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1rw0"]
+atlas = ExtResource("1_bh5lu")
+region = Rect2(128, 160, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s01o3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_remtn")
+}],
+"loop": true,
+"name": &"Chestplate.png",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8l2ex")
+}],
+"loop": true,
+"name": &"Glove.png",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxpcq")
+}],
+"loop": true,
+"name": &"Helmet.png",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1rw0")
+}],
+"loop": true,
+"name": &"Shoes.png",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s01o3")
+animation = &"Chestplate.png"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bh5lu")
+region_enabled = true
+region_rect = Rect2(0, 144, 16, 17)

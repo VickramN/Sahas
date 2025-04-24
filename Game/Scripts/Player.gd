@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
+class_name Player
+@export var nam: String
 @export var stats : Stats
+@export var current_weapon: Weapon
 #Player Movement Variable
 
 @export var speed = 100
@@ -57,3 +60,13 @@ func _input(event):
 
 func _on_animated_sprite_2d_animation_finished():
 	Global.is_attacking = false
+	Global.is_climbing = false
+	
+func equip_weapon():
+	if current_weapon:
+		current_weapon.equip(self)
+		
+func unequip_weapon():
+	if current_weapon:
+		current_weapon.unequip(self)
+		current_weapon = null
