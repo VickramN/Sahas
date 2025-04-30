@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dmco4eb3fqf3g"]
 
-[ext_resource type="Script" path="res://Scripts/cave_background.gd" id="1_4k3mt"]
+[ext_resource type="Script" uid="uid://c7amrur8xl6nw" path="res://Scripts/cave_background.gd" id="1_4k3mt"]
 [ext_resource type="Texture2D" uid="uid://b8o8cwo2c056v" path="res://Assets/cave_background/7.png" id="1_n8m6q"]
 [ext_resource type="Texture2D" uid="uid://dx0khii4mqvlm" path="res://Assets/cave_background/6.png" id="2_ja5bu"]
 [ext_resource type="Texture2D" uid="uid://cfv6a38qd32wu" path="res://Assets/cave_background/5.png" id="3_pdova"]
@@ -13,6 +13,7 @@
 script = ExtResource("1_4k3mt")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Base" type="Sprite2D" parent="ParallaxLayer"]
@@ -21,6 +22,7 @@ scale = Vector2(2.99996, 3.00005)
 texture = ExtResource("1_n8m6q")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="ForegroundSpikes" type="Sprite2D" parent="ParallaxLayer2"]
@@ -29,6 +31,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_ja5bu")
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="Pillars" type="Sprite2D" parent="ParallaxLayer3"]
@@ -53,7 +56,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("5_y6rol")
 
 [node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2(11522, 0)
+motion_mirroring = Vector2(1152, 0)
 
 [node name="2" type="Sprite2D" parent="ParallaxLayer6"]
 position = Vector2(576.008, 323.995)

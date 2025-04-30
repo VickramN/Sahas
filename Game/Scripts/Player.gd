@@ -5,10 +5,14 @@ class_name Player
 @export var current_weapon: Weapon
 #Player Movement Variable
 
-@export var speed = 100
-@export var gravity = 200
-@export var jump_height = -100
+@export var speed = 150
+@export var jump_height = -300
 
+#gravity cannot be changed
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+#State variables for player
+var isAttacking = false
 
 func _ready() -> void:
 	#loads default stats
@@ -21,8 +25,7 @@ func _physics_process(delta):
 	horizontal_movement()
 	move_and_slide()
 	
-	if !Global.is_attacking:
-		player_animations()
+	player_animations()
 		
 	
 func horizontal_movement():
@@ -33,23 +36,25 @@ func horizontal_movement():
 	
 #Animations
 func player_animations():
-	if Input.is_action_pressed("ui_left") and is_on_floor():
+	if Input.is_action_pressed("ui_left") and is_on_floor() and !isAttacking:
 		$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play("Run")
 		$CollisionShape2D.position.x = -3
 	
-	if Input.is_action_pressed("ui_right") and is_on_floor():
+	if Input.is_action_pressed("ui_right") and is_on_floor() and !isAttacking:
 		$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play("Run")
 	
-	if !Input.is_anything_pressed() and is_on_floor():
+	if !Input.is_anything_pressed() and is_on_floor() and !isAttacking:
 		$AnimatedSprite2D.play("Idle")
 	
 
 func _input(event):
 	if Input.is_action_pressed("ui_attack"):
-		Global.is_attacking = true
+		isAttacking = true
+		velocity.x = 0
 		$AnimatedSprite2D.play("Attack")
+		
 	
 	if Input.is_action_pressed("ui_jump") and is_on_floor():
 		velocity.y = jump_height
@@ -57,8 +62,6 @@ func _input(event):
 		
 	
 
-func _on_animated_sprite_2d_animation_finished():
-	Global.is_attacking = false
 
 func equip_weapon():
 	if current_weapon:
@@ -68,3 +71,8 @@ func unequip_weapon():
 	if current_weapon:
 		current_weapon.unequip(self)
 		current_weapon = null
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if $AnimatedSprite2D.animation == "Attack":
+		isAttacking = false
